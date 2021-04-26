@@ -136,3 +136,26 @@ html, body {
     text-decoration: none;
     text-transform: uppercase;
 }
+
+h1
+{
+    font-size: 44px;
+    font-weight: 400;
+    color: #39a5f1;
+    margin-bottom: 20px;
+}
+
+h2
+{
+    font-size: 20px;
+    font-weight: 400;
+    color: #39a5f1;
+}
+
+h3
+{
+    font-size: 70px;
+    font-weight: 400;
+    color: #a57f2f;
+    margin-bottom: 20px;
+}

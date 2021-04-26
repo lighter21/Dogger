@@ -14,5 +14,6 @@
 </head>
 <body>
     @yield ('welcome')
+
 </body>
 </html>
