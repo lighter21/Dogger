@@ -15,13 +15,18 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
-
 @section('content')
-
+    <a class="nav-link" href="pages/create">{{ __('Dodaj zwierzaka') }}</a>
+    @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
 @endsection
