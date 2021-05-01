@@ -6,7 +6,6 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -22,6 +21,7 @@
                         {{ session()->get('message') }}
                     </div>
                 @endif
+                <a class="nav-link" href="show_delete">{{ __('Zobacz lub usuń zwierzaka') }}</a>
             </div>
         </div>
     </div>

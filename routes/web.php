@@ -22,6 +22,8 @@ Route::get('/', function () {
 Route::get('pages/create', [PetController::class, 'create'])->name('createPet');
 Route::post('pages/create', [PetController::class, 'store'])->name('storePet');
 
+Route::get('show_delete',[PetController::class, 'show_delete']);
+Route::get('delete/{id}',[PetController::class, 'delete']);
 
 Auth::routes();
 
