@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PetController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('pet')->group(function () {
+    Route::get('create', [PetController::class, 'create'])->name('createPet');
+    Route::post('create', [PetController::class, 'store'])->name('storePet');
 });
 
 Auth::routes();
