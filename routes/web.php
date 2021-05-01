@@ -19,9 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('pages/create', [PetController::class, 'create'])->name('createPet');
-Route::post('pages/create', [PetController::class, 'store'])->name('storePet');
-
+Route::prefix('pet')->group(function () {
+    Route::get('create', [PetController::class, 'create'])->name('createPet');
+    Route::post('create', [PetController::class, 'store'])->name('storePet');
+});
 
 Auth::routes();
 
