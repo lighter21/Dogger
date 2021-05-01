@@ -32,4 +32,15 @@ class PetController extends Controller
         ]);
         return redirect('home')->with('message', 'Zwierzak został dodany!');
     }
+    public function show_delete()
+    {
+        $database_data = Pet::all();
+        return view('pet/show_delete', ['database_data' => $database_data]);
+    }
+    public function delete($id)
+    {
+        $database_data=Pet::find($id);
+        $database_data -> delete();
+        return redirect('show_delete') -> with('message', 'Zwierzak usunięty!');
+    }
 }
