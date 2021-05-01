@@ -13,7 +13,7 @@ class PetController extends Controller
     }
     public function create()
     {
-        return view('pages/create');
+        return view('pet.create');
     }
     public function store(Request $request)
     {
@@ -30,6 +30,6 @@ class PetController extends Controller
             "breed" => $request->breed
 
         ]);
-        return redirect('home') -> with('message', 'Zwierzak został dodany!');
+        return redirect('home')->with('message', 'Zwierzak został dodany!');
     }
 }
