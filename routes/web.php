@@ -24,6 +24,11 @@ Route::prefix('pet')->group(function () {
     Route::post('create', [PetController::class, 'store'])->name('storePet');
 });
 
+
+Route::get('index',[PetController::class, 'index']);
+Route::get('delete/{id}',[PetController::class, 'destroy']);
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

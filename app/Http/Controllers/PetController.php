@@ -32,4 +32,16 @@ class PetController extends Controller
         ]);
         return redirect('home')->with('message', 'Zwierzak został dodany!');
     }
+    public function index()
+    {
+        $userId = auth()->user()->id;
+        $databaseData = Pet::where('user_id',$userId)->get();
+        return view('pet/index', ['databaseData' => $databaseData]);
+    }
+    public function destroy($id)
+    {
+        $databaseData=Pet::find($id);
+        $databaseData -> delete();
+        return redirect('index');
+    }
 }
