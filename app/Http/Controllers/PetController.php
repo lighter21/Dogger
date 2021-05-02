@@ -42,6 +42,6 @@ class PetController extends Controller
     {
         $databaseData=Pet::find($id);
         $databaseData -> delete();
-        return redirect('index');
+        return redirect('pet/index');
     }
 }
