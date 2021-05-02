@@ -44,4 +44,30 @@ class PetController extends Controller
         $databaseData -> delete();
         return redirect('index');
     }
+
+    public function edit($id)
+    {
+        $databaseData=Pet::find($id);
+        return view('pet/edit', ['databaseData' => $databaseData]);
+    }
+    public function update($id, Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'type' => 'required',
+            'breed' => 'required'
+        ]);
+
+        $invoice=Pet::find($id);
+        $invoice->name=$request->name;
+        $invoice->type=$request->type;
+        $invoice->breed=$request->breed;
+        $invoice->save();
+
+        return redirect('index');
+
+
+
+    }
+
 }
