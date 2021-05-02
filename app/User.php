@@ -40,4 +40,7 @@ class User extends Authenticatable
     public function walk() {
         return $this->hasMany(Walk::class);
     }
+    public function pets() {
+        return $this->hasMany(Pet::class);
+    }
 }
