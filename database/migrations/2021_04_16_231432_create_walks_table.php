@@ -17,9 +17,9 @@ class CreateWalksTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('pet_id')->constrained();
-
-            //TODO: Zamiana flagi done na ramy czasowe
             $table->boolean('done');
+            $table->dateTime('date');
+            $table->text('description');
             $table->timestamps();
         });
     }

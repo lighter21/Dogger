@@ -17,6 +17,6 @@ class Walk extends Model
     }
 
     public function pet() {
-        return $this->hasMany(Pet::class);
+        return $this->belongsTo(Pet::class);
     }
 }
