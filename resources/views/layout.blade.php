@@ -10,10 +10,14 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="/css/main.css" rel="stylesheet">>
+    <link href="/css/main.css" rel="stylesheet">
+{{--    Tailwind--}}
+{{--    <meta charset="UTF-8" />--}}
+{{--    <meta name="viewport" content="width=device-width, initial-scale=1.0" />--}}
+{{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
+
 </head>
 <body>
-<p class="text-green-300">chuj</p>
     @yield ('welcome')
 </body>
 </html>
