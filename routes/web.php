@@ -28,7 +28,7 @@ Route::prefix('pet')->group(function () {
 Route::get('index',[PetController::class, 'index']);
 Route::get('delete/{id}',[PetController::class, 'destroy']);
 
-Route::get('edit/{id}',[PetController::class, 'edit']);
+Route::get('edit/{id}',[PetController::class, 'edit'])->name('editPet');
 Route::put('update/{id}', [PetController::class, 'update'])->name('updatePet');
 
 

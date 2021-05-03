@@ -15,6 +15,15 @@ class PetController extends Controller
     {
         return view('pet.create');
     }
+    public function validation(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|min:2|max:30',
+            'type' => 'required',
+            'breed' => 'required'
+        ]);
+        return $request;
+    }
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -48,26 +57,19 @@ class PetController extends Controller
     public function edit($id)
     {
         $databaseData=Pet::find($id);
-        return view('pet/edit', ['databaseData' => $databaseData]);
+        return view('pet.edit', ['databaseData' => $databaseData]);
     }
     public function update($id, Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'type' => 'required',
-            'breed' => 'required'
-        ]);
+        $validatedRequest=$this->validation($request);
 
         $invoice=Pet::find($id);
-        $invoice->name=$request->name;
-        $invoice->type=$request->type;
-        $invoice->breed=$request->breed;
+        $invoice->name=$validatedRequest->name;
+        $invoice->type=$validatedRequest->type;
+        $invoice->breed=$validatedRequest->breed;
         $invoice->save();
 
         return redirect('index');
-
-
-
     }
 
 }
