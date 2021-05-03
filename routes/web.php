@@ -40,6 +40,9 @@ Route::prefix('walk')->group(function () {
 });
 
 
+Route::get('edit/{id}',[PetController::class, 'edit'])->name('editPet');
+Route::put('update/{id}', [PetController::class, 'update'])->name('updatePet');
+
 
 Auth::routes();
 
