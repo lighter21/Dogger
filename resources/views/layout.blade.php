@@ -13,6 +13,7 @@
     <link href="/css/main.css" rel="stylesheet">>
 </head>
 <body>
+<p class="text-green-300">chuj</p>
     @yield ('welcome')
 </body>
 </html>
