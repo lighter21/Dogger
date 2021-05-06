@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     <li class="font-bold mt-4">
-                        <a href="#" class="hover:no-underline">
+                        <a href="{{ url('/walk') }}" class="hover:no-underline">
                             <span class="text-gray-400 hover:text-gray-600">Ogłoszenia</span>
                         </a>
                     </li>
