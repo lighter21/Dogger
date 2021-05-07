@@ -3,6 +3,7 @@
 use App\Http\Controllers\WalkController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -22,14 +23,10 @@ Route::get('/', function () {
 
 Route::prefix('pet')->group(function () {
     Route::get('/',[PetController::class, 'index'])->name('indexPet');
-
     Route::get('create', [PetController::class, 'create'])->name('createPet');
     Route::post('create', [PetController::class, 'store'])->name('storePet');
-
     Route::get('delete/{id}',[PetController::class, 'destroy'])->name('destroyPet');
 });
-
-
 
 
 Route::prefix('walk')->group(function () {
@@ -39,6 +36,10 @@ Route::prefix('walk')->group(function () {
     Route::post('store', [WalkController::class, 'store'])->name('storeWalk');
 });
 
+Route::prefix('user')->group(function () {
+    Route::get('edit/{id}',[UserController::class, 'edit'])->name('editAddress');
+    Route::put('update/{id}', [UserController::class, 'update'])->name('updateAddress');
+});
 
 Route::get('edit/{id}',[PetController::class, 'edit'])->name('editPet');
 Route::put('update/{id}', [PetController::class, 'update'])->name('updatePet');
