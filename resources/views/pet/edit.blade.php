@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Edytuj zwierzaka') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{route('updatePet',['id'=>$databaseData['id']])}}">
+                        <form method="POST" action="{{route('updatePet',['id'=>$databaseData['id']])}}" enctype ="multipart/form-data">
                             @method('PUT')
                             @csrf
                             <div class="form-group row">
@@ -93,6 +93,10 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="breed" class="col-md-4 col-form-label text-md-right">{{ __('Edytuj zdjęcie zwierzaka') }}</label>
+                                <input type="file" name="file">
+                            </div> 
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">

@@ -20,7 +20,8 @@ class PetController extends Controller
         $this->validate($request, [
             'name' => 'required|min:2|max:30',
             'type' => 'required',
-            'breed' => 'required'
+            'breed' => 'required',
+            'file' => 'nullable|mimes:jpeg,bmp,png'
         ]);
         return $request;
     }
@@ -29,16 +30,34 @@ class PetController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'type' => 'required',
-            'breed' => 'required'
+            'breed' => 'required',
+            'file' => 'nullable|mimes:jpeg,bmp,png'
         ]);
+        
+        if ($request->hasFile('file')) 
+        {
+            //storage/app/public/pet
+            $request->file->store('pet', 'public');
+            Pet::create([
+                "user_id" => $userId = Auth::id(),
+                "name" => $request->name,
+                "type" => $request->type,
+                "breed" => $request->breed,
+                "file_path" => $request->file->hashName()
+            ]);
+        }
+        else
+        {
+            $request->file = "brak.png";
+            Pet::create([
+                "user_id" => $userId = Auth::id(),
+                "name" => $request->name,
+                "type" => $request->type,
+                "breed" => $request->breed,
+                "file_path" => $request->file
+            ]);
+        }
 
-        Pet::create([
-            "user_id" => $userId = Auth::id(),
-            "name" => $request->name,
-            "type" => $request->type,
-            "breed" => $request->breed
-
-        ]);
         return redirect('home')->with('message', 'Zwierzak został dodany!');
     }
     public function index()
@@ -62,11 +81,16 @@ class PetController extends Controller
     public function update($id, Request $request)
     {
         $validatedRequest=$this->validation($request);
-
         $invoice=Pet::find($id);
         $invoice->name=$validatedRequest->name;
         $invoice->type=$validatedRequest->type;
         $invoice->breed=$validatedRequest->breed;
+        if ($request->hasFile('file')) 
+        {
+            //storage/app/public/pet
+            $request->file->store('pet', 'public');
+            $invoice->file_path=$validatedRequest->file->hashName();
+        }
         $invoice->save();
 
         return redirect('index');
