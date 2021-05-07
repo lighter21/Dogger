@@ -37,6 +37,8 @@ Route::prefix('walk')->group(function () {
 });
 
 Route::prefix('user')->group(function () {
+    Route::get('create', [UserController::class, 'create'])->name('createAddress');
+    Route::post('store', [UserController::class, 'store'])->name('storeAddress');
     Route::get('edit/{id}',[UserController::class, 'edit'])->name('editAddress');
     Route::put('update/{id}', [UserController::class, 'update'])->name('updateAddress');
 });
