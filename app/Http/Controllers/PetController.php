@@ -26,17 +26,13 @@ class PetController extends Controller
     }
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'type' => 'required',
-            'breed' => 'required'
-        ]);
+        $validatedRequest=$this->validation($request);
 
         Pet::create([
             "user_id" => $userId = Auth::id(),
-            "name" => $request->name,
-            "type" => $request->type,
-            "breed" => $request->breed
+            "name" => $validatedRequest->name,
+            "type" => $validatedRequest->type,
+            "breed" => $validatedRequest->breed
 
         ]);
         return redirect('home')->with('message', 'Zwierzak został dodany!');
