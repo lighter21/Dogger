@@ -40,7 +40,7 @@ Route::prefix('walk')->group(function () {
 
 Route::prefix('user')->group(function () {
     Route::get('edit',[UserController::class, 'edit'])->name('editAddress');
-    Route::put('update/{id}', [UserController::class, 'update'])->name('updateAddress');
+    Route::put('update', [UserController::class, 'update'])->name('updateAddress');
 });
 
 
