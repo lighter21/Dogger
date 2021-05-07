@@ -29,7 +29,7 @@
                                 <label for="house_number" class="col-md-4 col-form-label text-md-right">{{ __('Numer domu') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="house_number" type="house_number" class="form-control @error('house_number') is-invalid @enderror" name="house_number" value="{{ $databaseData['house_number'] }}" required autocomplete="house_number" autofocus>
+                                    <input id="house_number" type="text" class="form-control @error('house_number') is-invalid @enderror" name="house_number" value="{{ $databaseData['house_number'] }}" required autocomplete="house_number" autofocus>
 
                                     @error('house_number')
                                     <span class="invalid-feedback" role="alert">
@@ -43,7 +43,7 @@
                                 <label for="postcode" class="col-md-4 col-form-label text-md-right">{{ __('Kod pocztowy') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="postcode" type="postcode" class="form-control @error('postcode') is-invalid @enderror" name="postcode" value="{{ $databaseData['postcode'] }}" required autocomplete="postcode" autofocus>
+                                    <input id="postcode" type="text" class="form-control @error('postcode') is-invalid @enderror" name="postcode" value="{{ $databaseData['postcode'] }}" required autocomplete="postcode" autofocus>
 
                                     @error('postcode')
                                     <span class="invalid-feedback" role="alert">
@@ -57,7 +57,7 @@
                                 <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('Miejscowość') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="city" type="city" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ $databaseData['house_number'] }}" required autocomplete="city" autofocus>
+                                    <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ $databaseData['house_number'] }}" required autocomplete="city" autofocus>
 
                                     @error('city')
                                     <span class="invalid-feedback" role="alert">
@@ -71,7 +71,7 @@
                                 <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('Nr telefonu') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="city" type="phone_number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ $databaseData['phone_number'] }}" required autocomplete="phone_number" autofocus>
+                                    <input id="city" type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ $databaseData['phone_number'] }}" required autocomplete="phone_number" autofocus>
 
                                     @error('phone_number')
                                     <span class="invalid-feedback" role="alert">
