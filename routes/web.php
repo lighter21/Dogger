@@ -3,6 +3,7 @@
 use App\Http\Controllers\WalkController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -36,7 +37,10 @@ Route::prefix('walk')->group(function () {
     Route::post('store', [WalkController::class, 'store'])->name('storeWalk');
 });
 
-
+Route::prefix('user')->group(function () {
+    Route::get('edit',[UserController::class, 'edit'])->name('editAddress');
+    Route::put('update', [UserController::class, 'update'])->name('updateAddress');
+});
 
 
 
