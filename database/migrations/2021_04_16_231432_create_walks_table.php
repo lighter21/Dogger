@@ -19,7 +19,7 @@ class CreateWalksTable extends Migration
             $table->foreignId('pet_id')->constrained();
             $table->boolean('done');
             $table->dateTime('date');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

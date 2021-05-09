@@ -66,7 +66,7 @@
                                 <div class="col-md-6">
                                     <select id="breed" name="breed" class="form-control @error('breed') is-invalid @enderror" required autocomplete="breed" autofocus>
                                         <optgroup label="Psy">
-                                            <option value="Lablador">Lablador</option>
+                                            <option value="Labrador">Labrador</option>
                                             <option value="Owczarek niemiecki">Owczarek niemiecki</option>
                                             <option value="Buldog angielski">Buldog angielski</option>
                                             <option value="Golden retriever">Golden retriever</option>
