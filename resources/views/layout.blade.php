@@ -12,12 +12,14 @@
     <!-- Styles -->
     {{--<link href="/css/main.css" rel="stylesheet">-}}
 {{--    Tailwind--}}
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
 <body>
-    @yield ('welcome')
+@yield ('welcome')
+@yield ('main_page')
 </body>
 </html>
+
