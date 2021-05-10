@@ -19,6 +19,7 @@ class CreatePetsTable extends Migration
             $table->text('name');
             $table->text('type');
             $table->text('breed');
+            $table->string('file_path');
             $table->timestamps();
         });
     }
