@@ -35,6 +35,7 @@ class WalkController extends Controller
             Walk::create([
                 'user_id' => auth()->id(),
                 'pet_id' => $walk['pet_id'],
+                'payment'=> $walk['payment'],
                 'done' => false,
                 'date' => $walk['date'],
                 'description' =>$walk['description']
@@ -63,6 +64,7 @@ class WalkController extends Controller
        return $validatedData = $rq->validate([
             'pet_id' => 'exists:pets,id',
             'date' => 'required|date|after_or_equal:now',
+            'payment' => 'required|numeric|between:0,99999999.99',
             'description' => ''
         ]);
     }

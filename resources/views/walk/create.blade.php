@@ -28,6 +28,8 @@
         @error('data')
         <p>{{$message}}</p>
         @enderror
+        <label for="payment"> Stawka </label>
+        <input name="payment" type="text">
         <label for="description"> Dodatkowe informacje dla wyprowadzającego </label>
         <textarea name="description" type="datetime-local"> </textarea>
         @error('description')
