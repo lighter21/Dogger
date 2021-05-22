@@ -85,6 +85,47 @@ class AgreementController extends Controller
 
     public function myAgreements()
     {
-        return view('user.myAgreements');
+//        Zarezerwowane, oczekujące na akceptacje
+        $pendingAgreements = Walk::with(['pet', 'agreement'])
+            ->where([
+                'done' => false,
+            ])
+            ->whereHas('agreement', function ($q) {
+                $q->where([
+                    'tenant_id' => auth()->id(),
+                    'active' => false
+                ]);
+            })->get();
+
+//        Zarezerwowane, akceptowane
+        $acceptedAgreements = Walk::with(['pet', 'agreement'])
+            ->where([
+                'done' => false,
+            ])
+            ->whereHas('agreement', function ($q) {
+                $q->where([
+                    'tenant_id' => auth()->id(),
+                    'active' => true,
+                ]);
+            })->get();
+
+
+
+//        Zakończone zlecenia
+        $doneAgreements = Walk::with(['pet', 'agreement'])
+            ->where([
+                'done' => true,
+            ])
+            ->whereHas('agreement', function ($q) {
+                $q->where([
+                    'tenant_id' => auth()->id(),
+                ]);
+            })->get();
+
+
+
+
+        return view('user.myAgreements', ['pendingAgreements'=>$pendingAgreements,'acceptedAgreements'=> $acceptedAgreements, 'doneAgreements'=>$doneAgreements]);
+
     }
 }
