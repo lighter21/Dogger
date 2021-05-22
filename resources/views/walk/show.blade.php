@@ -30,7 +30,9 @@
             <div class="mt-2 text-sm">
                 <p>Spacer z psem {{$walk->pet->name}} rasy {{$walk->pet->breed}}<br>
                 Planowana data spaceru {!! date('d.m.Y', strtotime($walk->date)) !!} <br>
-                O godzinie:  {!! date('H:i', strtotime($walk->date)) !!}
+                O godzinie:  {!! date('H:i', strtotime($walk->date)) !!} <br>
+                Stawka: {{$walk->payment}} zł
+
                 </p>
             </div>
             <div class="mt-3 flex justify-end space-x-3">

@@ -18,6 +18,7 @@
                             <span class="m-2 text-xl md:text-xl block text-center font-bold text-green-400">{{$walk->pet->breed}}</span>
                             <span class="m-2 text-xl md:text-xl block text-center font-bold text-green-400">{{$walk->user->city}}</span>
                             <span class="m-2 block text-center font-bold text-green-400">Odbędzie się: {{$walk->date}}</span>
+                            <span class="m-2 block text-center font-bold text-green-400">Stawka: {{$walk->payment}} zł</span>
                             <div class="border bg-gray-100 text-green-400 text-lg uppercase font-bold rounded-full py-2 px-3 absolute top-0 ml-1 mt-2">
                                 <span class="">{{$walk->pet->name}}</span>
                             </div>

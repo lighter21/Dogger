@@ -34,32 +34,37 @@
                             @isset($pendingWalks)
                             <table class="w-full">
                                 <tr>
-                                    <th class="w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class="w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Imię zwierzaka</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Data i godzina spaceru</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Osoba wyprowadzająca</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>E-mail osoby wyprowadzającej</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                        <a>
+                                            <span>Stawka</span>
+                                        </a>
+                                    </th>
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Dodatkowe informacje</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Co zamierzasz zrobić?</span>
                                         </a>
@@ -67,14 +72,15 @@
                                 </tr>
                                 @foreach($pendingWalks as $walk)
                                 <tr>
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->pet->name}}</td>
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->date}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->pet->name}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->date}}</td>
 
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->user->name}}</td>
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->user->email}}</td>
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->description}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->user->name}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->user->email}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->payment}} zł</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->description}}</td>
 
-                                    <td class="w-1/6 text-center py-2 col-span=2 border border-gray-400">
+                                    <td class="w-1/7 text-center py-2 col-span=2 border border-gray-400">
                                         <a href="{{route('acceptWalk', $walk->id)}}" class="bg-blue-400 hover:bg-blue-700 text-white inlineblock rounded mx-2">Akceptuj</a>
                                         <a href="{{route('declineWalk', $walk->id)}}" class="bg-red-400 hover:bg-red-700 text-white inlineblock rounded mx-2">Odrzuć</a>
                                     </td>
@@ -90,32 +96,37 @@
                             @isset($acceptedWalks)
                             <table class="w-full">
                                 <tr>
-                                    <th class="w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class="w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Imię zwierzaka</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Data i godzina spaceru</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Osoba wyprowadzająca</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>E-mail osoby wyprowadzającej</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                        <a>
+                                            <span>Stawka</span>
+                                        </a>
+                                    </th>
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Dodatkowe informacje</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Co zamierzasz zrobić?</span>
                                         </a>
@@ -123,14 +134,15 @@
                                 </tr>
                                 @foreach($acceptedWalks as $walk)
                                 <tr>
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->pet->name}}</td>
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->date}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->pet->name}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->date}}</td>
 
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->user->name}}</td>
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->user->email}}</td>
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->description}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->user->name}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->user->email}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->payment}} zł</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->description}}</td>
 
-                                    <td class="w-1/6 text-center py-2 col-span=2 border border-gray-400">
+                                    <td class="w-1/7 text-center py-2 col-span=2 border border-gray-400">
                                         <a href="{{route('acceptWalk', $walk->id)}}" class="bg-blue-400 hover:bg-blue-700 text-white inlineblock rounded mx-2">Akceptuj</a>
                                         <a href="{{route('declineWalk', $walk->id)}}" class="bg-red-400 hover:bg-red-700 text-white inlineblock rounded mx-2">Odrzuć</a>
                                     </td>
@@ -146,32 +158,37 @@
                             @isset($activeWalks)
                             <table class="w-full">
                                 <tr>
-                                    <th class="w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class="w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Imię zwierzaka</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Data i godzina spaceru</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Osoba wyprowadzająca</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>E-mail osoby wyprowadzającej</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                        <a>
+                                            <span>Stawka</span>
+                                        </a>
+                                    </th>
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Dodatkowe informacje</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Co zamierzasz zrobić?</span>
                                         </a>
@@ -179,14 +196,15 @@
                                 </tr>
                                 @foreach($activeWalks as $walk)
                                 <tr>
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->pet->name}}</td>
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->date}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->pet->name}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->date}}</td>
 
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->user->name}}</td>
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->user->email}}</td>
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->description}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->user->name}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->user->email}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->payment}} zł</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->description}}</td>
 
-                                    <td class="w-1/6 text-center py-2 col-span=2 border border-gray-400">
+                                    <td class="w-1/7 text-center py-2 col-span=2 border border-gray-400">
                                         <a href="{{route('acceptWalk', $walk->id)}}" class="bg-blue-400 hover:bg-blue-700 text-white inlineblock rounded mx-2">Aktywuj</a>
                                         <a href="{{route('declineWalk', $walk->id)}}" class="bg-red-400 hover:bg-red-700 text-white inlineblock rounded mx-2">Odrzuć</a>
                                     </td>
@@ -202,32 +220,37 @@
                             @isset($doneWalks)
                             <table class="w-full">
                                 <tr>
-                                    <th class="w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class="w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Imię zwierzaka</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Data i godzina spaceru</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Osoba wyprowadzająca</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>E-mail osoby wyprowadzającej</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                        <a>
+                                            <span>Stawka</span>
+                                        </a>
+                                    </th>
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Dodatkowe informacje</span>
                                         </a>
                                     </th>
-                                    <th class=" w-1/6 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
+                                    <th class=" w-1/7 bg-gray-200 text-center border border-gray-400 font-bold px-2 py-2">
                                         <a>
                                             <span>Co zamierzasz zrobić?</span>
                                         </a>
@@ -235,14 +258,15 @@
                                 </tr>
                                 @foreach($doneWalks as $walk)
                                 <tr>
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->pet->name}}</td>
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->date}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->pet->name}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->date}}</td>
 
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->user->name}}</td>
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->user->email}}</td>
-                                    <td class="w-1/6 text-center py-2 bg-red border border-gray-400">{{$walk->description}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->user->name}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->user->email}}</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->payment}} zł</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->description}}</td>
 
-                                    <td class="w-1/6 text-center py-2 col-span=2 border border-gray-400">
+                                    <td class="w-1/7 text-center py-2 col-span=2 border border-gray-400">
                                         <a href="{{route('acceptWalk', $walk->id)}}" class="bg-blue-400 hover:bg-blue-700 text-white inlineblock rounded mx-2">Akceptuj</a>
                                         <a href="{{route('declineWalk', $walk->id)}}" class="bg-red-400 hover:bg-red-700 text-white inlineblock rounded mx-2">Odrzuć</a>
                                     </td>
