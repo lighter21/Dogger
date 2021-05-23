@@ -17,6 +17,7 @@ class CreateWalksTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('pet_id')->constrained();
+            $table->decimal('payment','8','2');
             $table->boolean('done');
             $table->dateTime('date');
             $table->text('description')->nullable();

@@ -42,6 +42,8 @@ Route::prefix('user')->group(function () {
     Route::get('edit',[UserController::class, 'edit'])->name('editAddress');
     Route::put('update', [UserController::class, 'update'])->name('updateAddress');
     Route::get('my-walks', [AgreementController::class, 'myWalks'])->name('myWalks');
+    Route::get('my-agreements', [AgreementController::class, 'myAgreements'])->name('myAgreements');
+    Route::get('addCoins',[UserController::class, 'addCoins'])->name('addCoins');
 });
 
 Route::prefix('agreement')->group(function () {

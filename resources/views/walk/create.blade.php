@@ -1,5 +1,3 @@
-@extends('layouts.app')
-
 @section('content')
     <div class="flex items-center h-screen w-full">
         <div class="w-full bg-white rounded shadow-lg p-8 m-4">
