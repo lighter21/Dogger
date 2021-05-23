@@ -11,10 +11,71 @@
     {{--    Tutaj trzeba zrobic ladna strone z informacjami o userze itd - coś a'la na przykład wygląd aukcji na olx.--}}
     {{--    Władujcie tutaj jakieś domyślne zdjęcie jak wcześniej, w widoku są wyrzucone modele: User, Walk, Pet. Nic nie trzeba szukać, jedynie wypisywać gotowe informacje i ostylować --}}
     <br> <br>
-    <span
-        class="text-center text-l md:text-xl border-green-500 border-4 rounded-full px-3 py-2 text-s font-bold cursor-pointer tracking-wider uppercase hover:bg-gray-100">
+    <h1 class="text-center font-bold">Ogłoszenie</h1>
+    <br>
+    <div class="grid sm:grid-cols-1 lg:grid-cols-2 grid-rows-3 gap-4 sm:mx-4 lg:mx-12 xl:mx-24 ">
+
+        <div class="flex items-center justify-center bg-white row-span-3 rounded-2xl border-2 border-black-200">
+            <img class="h-5/6 w-5/6" src="{{asset('img/dog.png')}}" alt="dog">
+        </div>
+
+        <div class="bg-white rounded-2xl p-2 border-2 border-black-200">
+            <div class="mt-2 text-center">
+                <span class="font-bold text-2xl">Użytkownik</span>
+            </div>
+            <div class="flex items-center mt-2 sm:pb-4">
+                <svg class="ml-6 bg-red-200 h-20 w-20 rounded-full p-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <div class="mx-4">
+                    <div>
+                        <span class="font-bold text-lg">Nazwa: </span>
+                        <span class="text-lg">{{$walk->user->name}}</span>
+                    </div>
+                    <div>
+                        <span class="font-bold text-lg">Użytkownik aplikacji od: </span>
+                        <span class="text-lg">{{$walk->user->created_at->format('d/m/Y')}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-2 border-2 border-black-200">
+            <div class="mt-2 text-center">
+                <span class="font-bold text-2xl">Informacje o spacerze</span>
+            </div>
+            <div class="ml-6 mb-2 text-lg">
+                <div>
+                    <span class="font-bold">Pies: </span>
+                    <span>{{$walk->pet->name}}</span>
+                </div>
+                <div>
+                    <span class="font-bold">Rasa: </span>
+                    <span>{{$walk->pet->breed}}</span>
+                </div>
+                <div>
+                    <span class="font-bold">Data: </span>
+                    <span>{{$walk->date}}</span>
+                </div>
+                <div>
+                    <span class="font-bold">Opis: </span>
+                    <span>{{$walk->description}}</span>
+                </div>
+                <div>
+                    <span class="font-bold">Stawka: </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-6">
+            <span
+                class="text-center text-l md:text-xl border-green-500 border-4 rounded-full px-3 py-2 text-s font-bold cursor-pointer tracking-wider uppercase hover:bg-gray-100">
                                     <a class="text-green-400 hover:no-underline hover:text-green-400" id="open-btn"> Umów się </a>
-    </span>
+            </span>
+        </div>
+
+    </div>
+    <br> <br>
 {{--MODAL--}}
     <div class="bg-black bg-opacity-50 absolute inset-0 hidden justify-center items-center" id="overlay">
         <div class="bg-gray-200 max-w-sm py-2 px-3 rounded shadow-xl text-gray-800">
