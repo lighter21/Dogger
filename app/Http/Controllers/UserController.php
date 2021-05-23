@@ -44,4 +44,8 @@ class UserController extends Controller
 
         return redirect('home');
     }
+    public function addCoins()
+    {
+        return view('user.addCoins');
+    }
 }
