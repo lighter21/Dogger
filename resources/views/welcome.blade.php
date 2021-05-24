@@ -14,12 +14,12 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a class="text-center font-bold text-gray-800 text-2xl inline-block py-2 px-4 mr-2 bg-yellow-300
-                        rounded hover:bg-yellow-400 hover:text-black shadow-md" href="{{ route('login') }}">Zaloguj </a>
+                        <a class="text-center font-bold text-white hover:no-underline text-2xl inline-block py-2 px-4 mr-2 bg-green-400
+                        rounded hover:bg-green-500 shadow-md" href="{{ route('login') }}">Zaloguj </a>
 
                         @if (Route::has('register'))
-                            <a class="text-center font-bold text-gray-800 text-2xl inline-block py-2 px-4 bg-yellow-300
-                            rounded hover:bg-yellow-400 hover:text-black shadow-md" href="{{ route('register') }}">Zarejestruj się!</a>
+                            <a class="text-center font-bold text-white hover:no-underline text-2xl inline-block py-2 px-4 bg-green-400
+                            rounded hover:bg-green-500 shadow-md" href="{{ route('register') }}">Zarejestruj się!</a>
                         @endif
                     @endauth
                 </div>
@@ -28,7 +28,7 @@
     </div>
 
     <!-- CONTENT -->
-    <div class="bg-gray-400 flex justify-between py-5 px-10 divide-dashed divide-x divide-gray-800">
+    <div class="flex justify-between py-5 px-10 divide-dashed divide-x divide-gray-800">
         <div class="w-1/2 text-center font-bold text-gray-800 text-2xl p-5">
             <h1 class="font-bold mb-4">Witaj w naszej aplikacji!</h1>
             <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <div class="bg-gray-400 flex justify-between py-5 px-10 divide-dashed divide-x divide-gray-800">
+    <div class="flex justify-between py-5 px-10 divide-dashed divide-x divide-gray-800">
         <div class="w-1/2 p-5">
             <img class="flex-center rounded shadow-md" src="/img/dog_main_walk_2.jpg" alt="dog">
         </div>

@@ -29,61 +29,24 @@
 @endsection
 
 @section('content')
-    <div class="w-full grid md:grid-cols-4 gap-1">
-        <div class="text-4xl md:border-r-2 p-3 md:row-span-3 md:flex md:justify-center">
-            <nav class="text-center mt-4">
-                <h1 class="text-center font-bold text-gray-700">MENU</h1>
-                <ul class="text-xl mt-6">
-                    <li class="font-bold">
-                        <a href="#" class="hover:no-underline">
-                            <span class="text-gray-400 hover:text-gray-600">Strona główna</span>
-                        </a>
-                    </li>
-                    <li class="font-bold mt-4">
-                        <a href="{{ url('/walk') }}" class="hover:no-underline">
-                            <span class="text-gray-400 hover:text-gray-600">Ogłoszenia</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:no-underline">
-                            <span class="text-gray-400 hover:text-gray-600">Szukaj ogłoszeń</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:no-underline">
-                            <span class="text-gray-400 hover:text-gray-600">Dodaj ogłoszenie</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:no-underline">
-                            <span class="text-gray-400 hover:text-gray-600">Edytuj ogłoszenie</span>
-                        </a>
-                    </li>
-                    <li class="font-bold mt-4">
-                        <a href="#" class="hover:no-underline">
-                            <span class="text-gray-400 hover:text-gray-600">Konto Premium</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:no-underline">
-                            <span class="text-gray-400 hover:text-gray-600">Kup wersję Premium</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:no-underline">
-                            <span class="text-gray-400 hover:text-gray-600">Kup DoggerCoiny</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
 
-        <div class="text-gray-400 text-4xl p-3 md:col-span-3">
-            <h1 class="text-center">Witaj ponownie !</h1>
-            <div class="flex justify-center">
-                <img class="h-72 w-72 m-4" src="/img/dog.png" alt="nocopyrights dog">
-            </div>
-            <h3 class="text-center">Czy to już pora na kolejny spacer ?</h3>
+    <div class="flex justify-between py-2 px-5 divide-dashed divide-x divide-gray-800">
+        <div class="w-1/3 text-center font-bold text-gray-800 text-2xl p-5">
+            <h1 class="font-bold mb-4">Witaj user123!</h1>
+            <img class="flex-center rounded shadow-md" src="/img/dog.png" alt="dog">
+        </div>
+        <div class="w-2/3 p-5">
+            <h1 class="font-bold mb-3">Ogłoszenia</h1>
+            <h2 class="mb-5">W tym panelu możesz sprawdzić wszystkie aktualnie dostępne ogłoszenia, a także dodać lub edytować własne.
+                 Ogłoszenia możesz szukać, poprzez wybranie docelowej odległości ogłoszenia od twojej aktualnej lokalizacji. Są
+            także opcje filtrowania ogłoszeń, gdzie dodać możesz dodatkowe wymagane infromacje takie jak cena.</h2>
+            <h1 class="font-bold mb-3">Profil</h1>
+            <h2 class="mb-5">Zakładka profil umożliwia sprawdzenie wszystkich informacji na temat twojego konta, ora historii zleceń,
+            które zostały pzez Ciebie wykonane lub też utworzone. Możesz tam również zaktualizować dane Twojego konta. </h2>
+            <h1 class="font-bold mb-3">DoggerCoin</h1>
+            <h2 class="mb-5">Jest to waluta, za pomocą której możesz dokonwywać transakcji w naszej aplikacji. Możesz ją wykorzystać min. do
+            opłaty za wykonanie twoich ogłoszeń lub wykupienie funkcji premium. Istnieje również możliwość wypłaty DoggerCoina
+            na inne waluty za drobną prowizją*.</h2>
         </div>
     </div>
 
