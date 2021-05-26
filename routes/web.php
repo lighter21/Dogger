@@ -5,6 +5,8 @@ use App\Http\Controllers\WalkController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WalletController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -52,7 +54,15 @@ Route::prefix('agreement')->group(function () {
     Route::get('{walkId}/decline',[AgreementController::class, 'declineWalk'])->name('declineWalk');
 });
 
+Route::prefix('wallet')->group(function () {
+    Route::get('/',[WalletController::class, 'show'])->name('showWallet');
+    Route::put('updateMyWallet', [WalletController::class, 'updateMyWallet'])->name('updateWallet');
+});
 
+Route::prefix('transaction')->group(function () {
+    Route::get('create',[TransactionController::class, 'create'])->name('createTransaction');
+    Route::post('store', [TransactionController::class, 'store'])->name('storeTransaction');
+});
 
 Auth::routes();
 

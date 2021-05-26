@@ -19,4 +19,8 @@ class Walk extends Model
     public function pet() {
         return $this->belongsTo(Pet::class);
     }
+
+    public function transaction() {
+        return $this->belongsTo(Walk::class);
+    }
 }
