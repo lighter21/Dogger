@@ -2,7 +2,7 @@
     <tr>
         <td>Id portfela:</td>
         <td>Użytkownik:</td>
-        <td>Bilans konta:</td>
+        <td>Stan konta:</td>
     </tr>
         <tr>
             <td>
