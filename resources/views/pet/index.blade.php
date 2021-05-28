@@ -21,7 +21,7 @@
                 <a role="button" onclick="return confirm('Czy jesteś pewny?')" href={{"delete/".$i['id']}}>Usuń</a>
             </td>
             <td>
-                <a role="button" href={{"edit/".$i['id']}}>Edytuj</a>
+                <a role="button" href={{"pet/edit/".$i['id']}}>Edytuj</a>
             </td>
         </tr>
     @endforeach

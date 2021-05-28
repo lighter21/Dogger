@@ -25,12 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $userId = Auth::id();
-        $wallet = Wallet::firstOrCreate(
-            ["user_id" => $userId],
-            ["account_balance" => 0.00]
-        );
-        $user = auth()->user();
-        return view('home',['wallet'=>$wallet]);
+        return view('home');
     }
 }
