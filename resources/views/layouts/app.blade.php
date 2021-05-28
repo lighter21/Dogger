@@ -183,7 +183,9 @@
                         <div class="flex text-base font-medium font-bold text-gray-500">
                             DoggerCoin:
                             <div class="ml-1 px-1 text-yellow-500">
-                                95
+                                @isset($wallet)
+                                {{$wallet->account_balance}}
+                                @endisset
                             </div>
                         </div>
                     </nav>

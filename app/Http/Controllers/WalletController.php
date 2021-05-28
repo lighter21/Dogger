@@ -29,7 +29,7 @@ class WalletController extends Controller
         $wallet->account_balance += $request->amountCoins;
         $wallet->save();
 
-        return redirect('wallet/');
+        return redirect('user/addCoins');
     }
     public function updateDifferentWallet(Request $request)
     {
