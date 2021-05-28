@@ -16,8 +16,4 @@ class Transaction extends Model
     {
         return $this->hasMany(User::class, 'recipient_id');
     }
-    public function walk()
-    {
-        return $this->hasOne(Walk::class, 'walk_id');
-    }
 }

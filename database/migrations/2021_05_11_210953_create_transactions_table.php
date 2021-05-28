@@ -17,7 +17,6 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->foreignId('sender_id')->constrained('users');
             $table->foreignId('recipient_id')->constrained('users');
-            $table->foreignId('walk_id')->constrained('walks');
             $table->decimal('amount',8,2);
             $table->timestamps();
         });

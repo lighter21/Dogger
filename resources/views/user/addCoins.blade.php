@@ -7,8 +7,9 @@
                 <div class="text-center p-2 mb-2 text-6xl font-bold">Doładuj Dogger Coiny!</div>
 
                     <div class="card-body">
-    
-                        <form method="POST" action="" enctype ="multipart/form-data">
+
+                        <form method="POST" action="{{route('updateWallet')}}" enctype ="multipart/form-data">
+                            @method('PUT')
                             @csrf
 
                             <div class="form-group row">
@@ -29,10 +30,10 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="breed" class="col-md-4 col-form-label text-md-right">Ilość Coinów:</label>
+                                <label for="amountCoins" class="col-md-4 col-form-label text-md-right">Ilość Coinów:</label>
 
                                 <div class="col-md-6">
-                                    <select id="breed" name="breed" class="form-control @error('breed') is-invalid @enderror" required autocomplete="breed" autofocus>
+                                    <select id="amountCoins" name="amountCoins" class="form-control @error('amountCoins') is-invalid @enderror" required autocomplete="amountCoins" autofocus>
                                             <option value="10">10 - 10zł</option>
                                             <option value="25">25 - 24zł</option>
                                             <option value="50">50 - 47zł</option>
@@ -49,7 +50,7 @@
                                 </div>
                             </div>
                         </form>
-                        
+
                     </div>
         </div>
         <div class="text-center p-2 mb-2 mt-4 text-4xl font-bold">Obsługiwane płatności:</div>

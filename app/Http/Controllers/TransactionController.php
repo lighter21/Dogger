@@ -20,7 +20,7 @@ class TransactionController extends Controller
     public function validation(Request $request)
     {
         $this->validate($request, [
-            'recipient' => 'required|min:2|max:30',
+            'recipient' => 'required|min:2|max:40',
             'amount' => 'required|numeric|between:1,999999'
         ]);
         return $request;
@@ -28,12 +28,11 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
         $validatedRequest = $this->validation($request);
-        $user2 = User::where('name', $validatedRequest->recipient )->firstOrFail();
+        $user2 = User::where('email', $validatedRequest->recipient )->firstOrFail();
 
         Transaction::create([
             "sender_id" => $userId = Auth::id(),
             "recipient_id" => $user2->id,
-            "walk_id" => $validatedRequest->walk_id,
             "amount" => $validatedRequest->amount
         ]);
 
@@ -41,6 +40,7 @@ class TransactionController extends Controller
         $senderWallet=Wallet::where('user_id', $user_id)->first();
         $senderWallet->account_balance -= $validatedRequest->amount;
         $senderWallet->save();
+
         $recipientWallet=Wallet::where('user_id', $user2->id)->firstOrFail();
         $recipientWallet->account_balance += $validatedRequest->amount;
         $recipientWallet->save();
