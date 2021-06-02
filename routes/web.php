@@ -62,6 +62,7 @@ Route::prefix('wallet')->group(function () {
 Route::prefix('transaction')->group(function () {
     Route::get('create',[TransactionController::class, 'create'])->name('createTransaction');
     Route::post('store', [TransactionController::class, 'store'])->name('storeTransaction');
+    Route::post('payWalk', [TransactionController::class, 'payWalk'])->name('payWalk');
 });
 
 Auth::routes();

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Walk;
 use App\Wallet;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -46,6 +47,31 @@ class TransactionController extends Controller
         $recipientWallet->save();
 
         return redirect('home');
+    }
+    public function payWalk(Request $request)
+    {
+        $user2 = User::where('id', $request->recipient )->firstOrFail();
+
+        Transaction::create([
+            "sender_id" => $userId = Auth::id(),
+            "recipient_id" => $user2->id,
+            "amount" => $request->amount,
+        ]);
+
+        $user_id = Auth::id();
+        $senderWallet=Wallet::where('user_id', $user_id)->first();
+        $senderWallet->account_balance -= $request->amount;
+        $senderWallet->save();
+
+        $recipientWallet=Wallet::where('user_id', $user2->id)->firstOrFail();
+        $recipientWallet->account_balance += $request->amount;
+        $recipientWallet->save();
+
+        $walk = Walk::where('id', $request->walkId)->firstOrFail();
+        $walk->done = true;
+        $walk->save();
+
+        return redirect()->back()->with('message', 'Pomyślnie dokonano płatności i zakończono spacer');
     }
 
 }
