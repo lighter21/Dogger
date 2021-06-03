@@ -63,6 +63,7 @@
                 </div>
                 <div>
                     <span class="font-bold">Stawka: </span>
+                    <span>{{$walk->payment}} DGC</span>
                 </div>
             </div>
         </div>
@@ -92,7 +93,7 @@
                 <p>Spacer z psem {{$walk->pet->name}} rasy {{$walk->pet->breed}}<br>
                 Planowana data spaceru {!! date('d.m.Y', strtotime($walk->date)) !!} <br>
                 O godzinie:  {!! date('H:i', strtotime($walk->date)) !!} <br>
-                Stawka: {{$walk->payment}} zł
+                Stawka: {{$walk->payment}} DGC
 
                 </p>
             </div>

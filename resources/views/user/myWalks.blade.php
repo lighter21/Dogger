@@ -136,14 +136,19 @@
                                 <tr>
                                     <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->pet->name}}</td>
                                     <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->date}}</td>
-
-                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->user->name}}</td>
-                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->user->email}}</td>
-                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->payment}} zł</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">@isset($acceptedUser3){{$acceptedUser3[0]->name}}@endisset</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">@isset($acceptedUser3){{$acceptedUser3[0]->email}}@endisset</td>
+                                    <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->payment}} DGC</td>
                                     <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->description}}</td>
 
                                     <td class="w-1/7 text-center py-2 col-span=2 border border-gray-400">
-                                        <a href="{{route('acceptWalk', $walk->id)}}" class="bg-blue-400 hover:bg-blue-700 text-white inlineblock rounded mx-2">Akceptuj</a>
+                                        <form method="POST" action="{{route('payWalk')}}" enctype ="multipart/form-data">@csrf
+                                            <input type="text" id="walkId" name="walkId" value="{{ $walk->id }}" hidden>
+                                            <input type="text" id="recipient" name="recipient" value="{{ $acceptedAgreement2->tenant_id }}" hidden>
+                                            <input type="text" id="amount" name="amount" value="{{ $walk->payment }}" hidden><button type="submit" class="bg-blue-400 hover:bg-blue-700 text-white inlineblock rounded mx-2">
+                                            Zapłać
+                                            </button>
+                                            </form>
                                         <a href="{{route('declineWalk', $walk->id)}}" class="bg-red-400 hover:bg-red-700 text-white inlineblock rounded mx-2">Odrzuć</a>
                                     </td>
                                 </tr>

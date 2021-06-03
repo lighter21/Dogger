@@ -43,4 +43,10 @@ class User extends Authenticatable
     public function pets() {
         return $this->hasMany(Pet::class);
     }
+    public function wallet() {
+        return $this->hasOne(Wallet::class);
+    }
+    public function transaction() {
+        return $this->belongsTo(Transaction::class);
+    }
 }

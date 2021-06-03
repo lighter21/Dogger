@@ -183,7 +183,13 @@
                         <div class="flex text-base font-medium font-bold text-gray-500">
                             DoggerCoin:
                             <div class="ml-1 px-1 text-yellow-500">
-                                95
+                                @if (!Auth::guest())
+                                    @if(!(\App\Wallet::where('user_id', Auth::id())->first()))
+                                        {{ \App\Wallet::firstOrCreate(["user_id" => Auth::id()],["account_balance" => 0.00])->account_balance }}
+                                    @else
+                                        {{ \App\Wallet::where('user_id', Auth::id())->first()->account_balance}}
+                                    @endif
+                                @endif
                             </div>
                         </div>
                     </nav>
@@ -261,7 +267,13 @@
                                     <span class="flex font-bold ml-3 text-base font-medium text-gray-900 hover:no-underline">
                                         DoggerCoin:
                                         <div class="ml-1 text-yellow-500">
-                                            95
+                                            @if (!Auth::guest())
+                                                @if(!(\App\Wallet::where('user_id', Auth::id())->first()))
+                                                    {{ \App\Wallet::firstOrCreate(["user_id" => Auth::id()],["account_balance" => 0.00]) }}
+                                                @else
+                                                    {{ \App\Wallet::where('user_id', Auth::id())->first()->account_balance}}
+                                                @endif
+                                            @endif
                                         </div>
                                     </span>
                                 </div>

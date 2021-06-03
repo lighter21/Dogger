@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Agreement;
 use App\Walk;
+use App\User;
 
 class AgreementController extends Controller
 {
@@ -36,9 +37,27 @@ class AgreementController extends Controller
                     'active' => false,
                 ]);
             })->get();
+        $acceptedAgreement2 = 0;
+        $acceptedUser3 = 0;
+        $acceptedWalks1 = Walk::where([
+            'user_id' => auth()->id(),
+            'done' => false,
+            ])->first();
+        if($acceptedWalks1) {
+            $acceptedAgreement2 = Agreement::where([
+                'walk_id' => $acceptedWalks1->id,
+                'active' => true,
+            ])->first();
+        }
+        if($acceptedAgreement2){
+            $acceptedUser3 = User::where([
+                'id' => $acceptedAgreement2->tenant_id,
+            ])->get();
+        }
+
 
 //          Zarezerwowane, akceptowane
-        $acceptedWalks = Walk::with(['pet', 'agreement'])
+        $acceptedWalks = Walk::with(['agreement', 'pet'])
             ->where([
                 'user_id' => auth()->id(),
                 'done' => false,
@@ -65,7 +84,7 @@ class AgreementController extends Controller
                 'done' => true,
             ])->get();
 
-        return view('user.myWalks', ['pendingWalks'=>$pendingWalks,'acceptedWalks'=> $acceptedWalks, 'doneWalks'=>$doneWalks, 'activeWalks'=>$activeWalks]);
+        return view('user.myWalks', ['pendingWalks'=>$pendingWalks,'acceptedWalks'=> $acceptedWalks, 'doneWalks'=>$doneWalks, 'activeWalks'=>$activeWalks, 'acceptedWalks1'=>$acceptedWalks1, 'acceptedAgreement2'=>$acceptedAgreement2, 'acceptedUser3'=>$acceptedUser3]);
     }
 
     public function acceptWalk($walkId)
