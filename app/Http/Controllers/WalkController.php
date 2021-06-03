@@ -10,7 +10,6 @@ use function Couchbase\passthruEncoder;
 class WalkController extends Controller
 {
     public function index() {
-        $user = auth()->user();
         $walks = Walk::with(['pet', 'agreement'])->where('user_id', '<>', auth()->id())->whereDoesntHave('agreement')->get();
         return view('walk.index', ['walks'=>$walks]);
     }

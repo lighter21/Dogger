@@ -13,10 +13,8 @@
                             @csrf
 
                             <div class="form-group row">
-                                <label for="user" class="col-md-4 col-form-label text-md-right">Użytkownik:</label>
-
                                 <div class="col-md-6">
-                                    <input id="user" type="text" class="form-control" name="user" value="<?php
+                                    <input id="user" type="hidden" class="form-control" name="user" value="<?php
                                         use Illuminate\Support\Facades\Auth;
                                     if (Auth::check())
                                     {

@@ -1,31 +1,31 @@
-@extends ('layout')
+@extends ('layouts.app')
 
-@section('main_page')
-    <!-- NAGŁÓWEK -->
-    <div class="bg-gray-200 flex justify-between shadow-md">
-        <div class="flex items-center">
-            <img class="flex-center h-28 w-28 m-2" src="/img/logo.png" alt="Logo">
-            <h1 class="text-center font-bold text-gray-800">DOGGER</h1>
-        </div>
+@section('content')
+{{--    <!-- NAGŁÓWEK -->--}}
+{{--    <div class="bg-gray-200 flex justify-between shadow-md">--}}
+{{--        <div class="flex items-center">--}}
+{{--            <img class="flex-center h-28 w-28 m-2" src="/img/logo.png" alt="Logo">--}}
+{{--            <h1 class="text-center font-bold text-gray-800">DOGGER</h1>--}}
+{{--        </div>--}}
 
-        <div class="items-center flex">
-            @if (Route::has('login'))
-                <div>
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a class="text-center font-bold text-white hover:no-underline text-2xl inline-block py-2 px-4 mr-2 bg-green-400
-                        rounded hover:bg-green-500 shadow-md" href="{{ route('login') }}">Zaloguj </a>
+{{--        <div class="items-center flex">--}}
+{{--            @if (Route::has('login'))--}}
+{{--                <div>--}}
+{{--                    @auth--}}
+{{--                        <a href="{{ url('/home') }}">Home</a>--}}
+{{--                    @else--}}
+{{--                        <a class="text-center font-bold text-white hover:no-underline text-2xl inline-block py-2 px-4 mr-2 bg-green-400--}}
+{{--                        rounded hover:bg-green-500 shadow-md" href="{{ route('login') }}">Zaloguj </a>--}}
 
-                        @if (Route::has('register'))
-                            <a class="text-center font-bold text-white hover:no-underline text-2xl inline-block py-2 px-4 bg-green-400
-                            rounded hover:bg-green-500 shadow-md" href="{{ route('register') }}">Zarejestruj się!</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-        </div>
-    </div>
+{{--                        @if (Route::has('register'))--}}
+{{--                            <a class="text-center font-bold text-white hover:no-underline text-2xl inline-block py-2 px-4 bg-green-400--}}
+{{--                            rounded hover:bg-green-500 shadow-md" href="{{ route('register') }}">Zarejestruj się!</a>--}}
+{{--                        @endif--}}
+{{--                    @endauth--}}
+{{--                </div>--}}
+{{--            @endif--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
     <!-- CONTENT -->
     <div class="flex justify-between py-5 px-10 divide-dashed divide-x divide-gray-800">
@@ -53,32 +53,7 @@
             </h2>
         </div>
     </div>
-    <div>
-        <footer class="p-2 w-full text-center bg-gray-200 shadow-inner">
-            <div class="grid md:grid-cols-4  gap-2">
-                <ul class="m-2 p-2 text-gray-500">
-                    <li class="font-bold">O nas:</li>
-                    <li>Studio skupiające się na aplikacjach ułatwiających codzienne czynności</li>
-                </ul>
-                <ul class="m-2 p-2 text-gray-500">
-                    <li class="font-bold">O projekcie:</li>
-                    <li>Projekt stworzony z myślą o miłośnikach zwierząt - tak aby każdy mógł czerpać radość ze spaceru</li>
-                </ul>
-                <ul class="m-2 p-2 text-gray-500">
-                    <li class="font-bold">Kontakt</li>
-                    <li>Numer telefonu: 123 456 789</li>
-                    <li>e-mail: dogger@mail.com</li>
-                </ul>
-                <ul class="m-2 p-2 text-gray-500">
-                    <li class="font-bold">Media społecznościowe:</li>
-                    <li class="flex justify-center">
-                        <img class="h-9 w-9 m-2" src="/img/facebook_icon.png" alt="facebook icon">
-                        <img class="h-10 w-10 m-2" src="/img/instagram_icon.png" alt="instagram icon">
-                    </li>
-                </ul>
-            </div>
-        </footer>
-    </div>
+
     <!-- STOPKA -->
 
 @endsection
