@@ -15,8 +15,14 @@ class Agreement extends Model
         return $this->belongsTo(Walk::class);
     }
 
-    public function user()
+    public function tenant()
     {
         return $this->belongsTo(User::class);
     }
+
+    public function pet()
+    {
+        return $this->belongsTo(Pet::class);
+    }
+
 }
