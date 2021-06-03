@@ -8,31 +8,26 @@
                     <div class="card-header">Dodaj zwierzaka</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ action('PetController@store') }}" enctype ="multipart/form-data">
+                        <form method="POST" action="{{ action('PetController@store') }}" enctype="multipart/form-data">
                             @csrf
 
-                            <div class="form-group row">
-                                <label for="user" class="col-md-4 col-form-label text-md-right">Użytkownik</label>
-
-                                <div class="col-md-6">
-                                    <input id="user" type="text" class="form-control" name="user" value="<?php
-                                        use Illuminate\Support\Facades\Auth;
-                                    if (Auth::check())
-                                    {
-                                        $user = Auth::user();
-                                        if (isset($user->name)) {
-                                            print($user->name);
-                                        }
-                                    }
-                                    ?>
-                                    " readonly>
-                                </div>
-                            </div>
+                            <input id="user" type="hidden" class="form-control" name="user" value="<?php
+                            use Illuminate\Support\Facades\Auth;
+                            if (Auth::check()) {
+                                $user = Auth::user();
+                                if (isset($user->name)) {
+                                    print($user->name);
+                                }
+                            }
+                            ?>
+                                " readonly>
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Imię zwierzaka</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input id="name" type="text"
+                                           class="form-control @error('name') is-invalid @enderror" name="name"
+                                           value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -46,11 +41,13 @@
                                 <label for="type" class="col-md-4 col-form-label text-md-right">Rodzaj zwierzaka</label>
 
                                 <div class="col-md-6">
-                                    <select id="type" name="type" class="form-control @error('type') is-invalid @enderror" required autocomplete="type" autofocus>
+                                    <select id="type" name="type"
+                                            class="form-control @error('type') is-invalid @enderror" required
+                                            autocomplete="type" autofocus>
                                         <option value="Pies">Pies</option>
                                         <option value="Kot">Kot</option>
                                     </select>
-{{--                                    <input id="type" type="text" class="form-control @error('type') is-invalid @enderror" name="type" value="{{ old('type') }}" required autocomplete="type" autofocus>--}}
+                                    {{--                                    <input id="type" type="text" class="form-control @error('type') is-invalid @enderror" name="type" value="{{ old('type') }}" required autocomplete="type" autofocus>--}}
 
                                     @error('type')
                                     <span class="invalid-feedback" role="alert">
@@ -64,7 +61,9 @@
                                 <label for="breed" class="col-md-4 col-form-label text-md-right">'Rasa</label>
 
                                 <div class="col-md-6">
-                                    <select id="breed" name="breed" class="form-control @error('breed') is-invalid @enderror" required autocomplete="breed" autofocus>
+                                    <select id="breed" name="breed"
+                                            class="form-control @error('breed') is-invalid @enderror" required
+                                            autocomplete="breed" autofocus>
                                         <optgroup label="Psy">
                                             <option value="Labrador">Labrador</option>
                                             <option value="Owczarek niemiecki">Owczarek niemiecki</option>
@@ -95,7 +94,8 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="breed" class="col-md-4 col-form-label text-md-right">Zdjęcie zwierzaka</label>
+                                <label for="breed" class="col-md-4 col-form-label text-md-right">Zdjęcie
+                                    zwierzaka</label>
                                 <input type="file" name="file">
                             </div>
 

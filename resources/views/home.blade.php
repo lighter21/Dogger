@@ -32,7 +32,7 @@
 
     <div class="flex justify-between py-2 px-5 divide-dashed divide-x divide-gray-800">
         <div class="w-1/3 text-center font-bold text-gray-800 text-2xl p-5">
-            <h1 class="font-bold mb-4">Witaj user123!</h1>
+            <h1 class="font-bold mb-4">Witaj {{auth()->user()->name}}</h1>
             <img class="flex-center rounded shadow-md" src="/img/dog.png" alt="dog">
         </div>
         <div class="w-2/3 p-5">

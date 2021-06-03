@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Agreement;
 use App\Walk;
-use App\User;
 
 class AgreementController extends Controller
 {
@@ -32,67 +31,51 @@ class AgreementController extends Controller
                 'user_id' => auth()->id(),
                 'done' => false,
             ])
-            ->whereHas('agreement', function ($q) {
-                $q->where([
-                    'active' => false,
-                ]);
-            })->get();
-        $acceptedAgreement2 = 0;
-        $acceptedUser3 = 0;
-        $acceptedWalks1 = Walk::where([
-            'user_id' => auth()->id(),
-            'done' => false,
-            ])->first();
-        if($acceptedWalks1) {
-            $acceptedAgreement2 = Agreement::where([
-                'walk_id' => $acceptedWalks1->id,
-                'active' => true,
-            ])->first();
-        }
-        if($acceptedAgreement2){
-            $acceptedUser3 = User::where([
-                'id' => $acceptedAgreement2->tenant_id,
-            ])->get();
-        }
-
+            ->whereDoesntHave('agreement')->get();
 
 //          Zarezerwowane, akceptowane
-        $acceptedWalks = Walk::with(['agreement', 'pet'])
-            ->where([
+//        $acceptedWalks = Walk::with(['agreement', 'pet'])
+//            ->where([
+//                'user_id' => auth()->id(),
+//                'done' => false,
+//            ])
+//            ->whereHas('agreement', function ($q) {
+//                $q->where([
+//                    'active' => true,
+//                ]);
+//            })->get();
+        $acceptedWalks = Agreement::with(['walk', 'pet', 'tenant'])
+            ->where('active', true)
+            ->whereHas('walk', function ($q) {
+            $q->where([
                 'user_id' => auth()->id(),
                 'done' => false,
-            ])
-            ->whereHas('agreement', function ($q) {
-                $q->where([
-                    'active' => true,
-                ]);
-            })->get();
+            ]);
+        })->get();
 
 //        Aktywne ogłoszenia o spacer do wynajęcia
-        $activeWalks = Walk::with(['pet', 'agreement'])
-            ->where([
+        $activeWalks = Agreement::with(['pet', 'walk', 'tenant'])->whereHas('walk', function ($q) {
+            $q->where([
                 'user_id' => auth()->id(),
                 'done' => false,
-            ])
-            ->whereDoesntHave('agreement')
-            ->get();
+            ]);
+        })->get();
 
 //        Zakończone spacery
-        $doneWalks = Walk::with(['pet', 'agreement'])
+        $doneWalks = Walk::with(['pet'])
             ->where([
                 'user_id' => auth()->id(),
                 'done' => true,
             ])->get();
-
-        return view('user.myWalks', ['pendingWalks'=>$pendingWalks,'acceptedWalks'=> $acceptedWalks, 'doneWalks'=>$doneWalks, 'activeWalks'=>$activeWalks, 'acceptedWalks1'=>$acceptedWalks1, 'acceptedAgreement2'=>$acceptedAgreement2, 'acceptedUser3'=>$acceptedUser3]);
+        return view('user.myWalks', ['pendingWalks' => $pendingWalks, 'acceptedWalks' => $acceptedWalks, 'doneWalks' => $doneWalks, 'activeWalks' => $activeWalks]);
     }
 
     public function acceptWalk($walkId)
     {
-      $agreement = Agreement::where('walk_id', $walkId)->firstOrFail();
-      $agreement->active = true;
-      $agreement->save();
-      return redirect()->back()->with('message', 'Pomyślnie zaakceptowano spacer');
+        $agreement = Agreement::where('walk_id', $walkId)->firstOrFail();
+        $agreement->active = true;
+        $agreement->save();
+        return redirect()->back()->with('message', 'Pomyślnie zaakceptowano spacer');
     }
 
     public function declineWalk($walkId)
@@ -129,7 +112,6 @@ class AgreementController extends Controller
             })->get();
 
 
-
 //        Zakończone zlecenia
         $doneAgreements = Walk::with(['pet', 'agreement'])
             ->where([
@@ -140,11 +122,7 @@ class AgreementController extends Controller
                     'tenant_id' => auth()->id(),
                 ]);
             })->get();
-
-
-
-
-        return view('user.myAgreements', ['pendingAgreements'=>$pendingAgreements,'acceptedAgreements'=> $acceptedAgreements, 'doneAgreements'=>$doneAgreements]);
+        return view('user.myAgreements', ['pendingAgreements' => $pendingAgreements, 'acceptedAgreements' => $acceptedAgreements, 'doneAgreements' => $doneAgreements]);
 
     }
 }

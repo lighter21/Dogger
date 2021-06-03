@@ -13,7 +13,7 @@ class Walk extends Model
     }
 
     public function agreement() {
-        return $this->hasMany(Agreement::class);
+        return $this->hasOne(Agreement::class);
     }
 
     public function pet() {
