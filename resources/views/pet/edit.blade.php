@@ -93,18 +93,21 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="breed" class="col-md-4 col-form-label text-md-right">{{ __('Edytuj zdjęcie zwierzaka') }}</label>
-                                <input type="file" name="file">
-                            </div> 
-
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        Zapisz
-                                    </button>
-                                </div>
+                            <div class="mb-2"> <span>Zdjęcie twojego pupila:</span>
+                            <div class="relative h-40 rounded-lg border-dashed border-2 border-gray-200 bg-white flex justify-center items-center hover:cursor-pointer">
+                                <div class="absolute">
+                                    <div class="flex flex-col items-center "> <i class="fa fa-cloud-upload fa-3x text-gray-200"></i><span class="block text-blue-400 font-normal">Klikinj aby poszukać pliku:</span> </div>
+                                </div> <input type="file" class="h-full w-full opacity-0" name="file">
                             </div>
+                            <div class="flex justify-between items-center text-gray-400"> <span>Akceptowane typy: png i jpg</span></div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <div class="mx-auto">
+                                <button type="submit" class="btn btn-primary">
+                                    Zapisz
+                                </button>
+                            </div>
+                        </div>
                         </form>
                     </div>
                 </div>

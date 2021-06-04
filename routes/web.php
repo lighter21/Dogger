@@ -25,7 +25,7 @@ Route::get('/', function () {
 });
 
 Route::prefix('pet')->middleware('auth')->group(function () {
-    Route::get('/',[PetController::class, 'index'])->name('indexPet');
+    Route::get('index',[PetController::class, 'index'])->name('indexPet');
     Route::get('create', [PetController::class, 'create'])->name('createPet');
     Route::post('create', [PetController::class, 'store'])->name('storePet');
     Route::get('delete/{id}',[PetController::class, 'destroy'])->name('destroyPet');
