@@ -18,7 +18,7 @@ class PetsTableSeeder extends Seeder
             'name' => 'Max',
             'type' => 'Pies',
             'breed' => 'Labrador',
-            'file_path'=>''
+            'file_path'=>'/pictures/lab_id_1.jpg'
         ], [
 
             'id' => '2',
@@ -26,14 +26,14 @@ class PetsTableSeeder extends Seeder
             'name' => 'Luna',
             'type' => 'Pies',
             'breed' => 'Rottweiler',
-            'file_path'=>''
+            'file_path'=>'/pictures/rott_id_2.jpg'
         ],[
             'id' => '3',
             'user_id'=>'3',
             'name' => 'Kicia',
             'type' => 'Kot',
             'breed' => 'Kot Syjamski',
-            'file_path'=>''
+            'file_path'=>'/pictures/syj_id_3.jpg'
 
 
         ],[
@@ -42,14 +42,14 @@ class PetsTableSeeder extends Seeder
             'name' => 'Dino',
             'type' => 'Pies',
             'breed' => 'Labrador',
-            'file_path'=>''
+            'file_path'=>'/pictures/lab_id_4.jpg'
         ], [
             'id' => '5',
             'user_id'=>'4',
             'name' => 'Leo',
             'type' => 'Pies',
             'breed' => 'Husky sybersyjski',
-            'file_path'=>''
+            'file_path'=>'/pictures/hus_id_5.jpg'
         ]];
 
         foreach ($pets as $pet)
