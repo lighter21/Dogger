@@ -62,11 +62,19 @@ class AgreementController extends Controller
         })->get();
 
 //        Zakończone spacery
-        $doneWalks = Walk::with(['pet'])
-            ->where([
-                'user_id' => auth()->id(),
-                'done' => true,
-            ])->get();
+        $doneWalks = Agreement::with(['walk', 'pet', 'tenant'])
+            ->where('active', true)
+            ->whereHas('walk', function ($q) {
+                $q->where([
+                    'user_id' => auth()->id(),
+                    'done' => true,
+                ]);
+            })->get();
+//        $doneWalks = Walk::with(['pet'])
+//            ->where([
+//                'user_id' => auth()->id(),
+//                'done' => true,
+//            ])->get();
         return view('user.myWalks', ['pendingWalks' => $pendingWalks, 'acceptedWalks' => $acceptedWalks, 'doneWalks' => $doneWalks, 'activeWalks' => $activeWalks]);
     }
 

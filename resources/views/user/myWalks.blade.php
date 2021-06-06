@@ -139,8 +139,8 @@
                                                 <td class="w-1/7 text-center py-2 col-span=2 border border-gray-400">
                                                     <a href="{{route('declineWalk', $walk->id)}}"
                                                        class="bg-red-400 hover:bg-red-700 text-white inlineblock rounded px-3 mx-2">Anuluj</a>
-                                                    <a href="{{route('declineWalk', $walk->id)}}"
-                                                       class="bg-blue-400 hover:bg-blue-700 text-white inlineblock rounded px-3 mx-2">Zakończ i zapłać</a>
+                                                    <a href="{{route('payWalk', [$walk->walk->id, $walk->tenant->email,$walk->walk->payment])}}"
+                                                       class="bg-blue-400 hover:bg-blue-700 text-white block rounded px-3 mx-2">Zakończ i zapłać</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -204,7 +204,7 @@
                                                     <a href="{{route('acceptWalk', $walk->walk->id)}}"
                                                        class="bg-blue-400 hover:bg-blue-700 text-white px-2  inlineblock rounded mx-2">Akceptuj</a>
                                                     <a href="{{route('declineWalk', $walk->walk->id)}}"
-                                                       class="bg-blue-400 hover:bg-blue-700 text-white  px-2 inlineblock rounded mx-2">Odrzuć</a>
+                                                       class="bg-red-400 hover:bg-red-700 text-white  px-2 inlineblock rounded mx-2">Odrzuć</a>
 
                                                 </td>
                                             </tr>
@@ -258,17 +258,17 @@
                                         @foreach($doneWalks as $walk)
                                             <tr>
                                                 <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->pet->name}}</td>
-                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->date}}</td>
-                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->user->name}}</td>
-                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->user->email}}</td>
-                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->payment}}</td>
-                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{substr($walk->description, 0, 30)}}</td>
+                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->walk->date}}</td>
+                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->tenant->name}}</td>
+                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->tenant->email}}</td>
+                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->walk->payment}}</td>
+                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{substr($walk->walk->description, 0, 30)}}</td>
 
                                                 <td class="w-1/7 text-center py-2 col-span=2 border border-gray-400">
-                                                    <a href="{{route('acceptWalk', $walk->id)}}"
-                                                       class="bg-blue-400 hover:bg-blue-700 text-white inlineblock rounded mx-2">Akceptuj</a>
-                                                    <a href="{{route('declineWalk', $walk->id)}}"
-                                                       class="bg-red-400 hover:bg-red-700 text-white inlineblock rounded mx-2">Odrzuć</a>
+                                                    <a href="{{route('payWalk', [$walk->walk->id, $walk->tenant->email,$walk->walk->payment])}}"
+                                                       class="bg-blue-400 hover:bg-blue-700 text-white inlineblock rounded mx-2">Zapłać</a>
+{{--                                                    <a href="{{route('declineWalk', $walk->id)}}"--}}
+{{--                                                       class="bg-red-400 hover:bg-red-700 text-white inlineblock rounded mx-2">Odrzuć</a>--}}
                                                 </td>
                                             </tr>
                                         @endforeach
