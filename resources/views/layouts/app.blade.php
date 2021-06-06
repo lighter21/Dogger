@@ -139,10 +139,71 @@
                     </div>
                     <!-- Koniec rozwijanego menu ogłoszenia -->
 
-                    <a href="{{route('addCoins')}}"
-                       class="text-base font-medium text-gray-500 hover:no-underline hover:text-gray-900">
-                        DoggerCoin
-                    </a>
+                    <div class="relative">
+                        <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
+                        <button onclick="buttonclickc();" type="button"
+                                class="text-gray-500 group bg-gray-200 rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none"
+                                aria-expanded="false">
+                            <span>DoggerCoin</span>
+                            <!--
+                              Heroicon
+
+                              Item active: "text-gray-600", Item inactive: "text-gray-400"
+                            -->
+                            <svg class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500"
+                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                 aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                      clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+
+                        <!-- Tutaj zaczyna się rozwijane menu DC -->
+                        <div id="menucoin"
+                             class="hidden absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
+                            <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                                <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                                    <a href="{{route('addCoins')}}"
+                                       class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 hover:no-underline">
+                                        <!-- Heroicon -->
+                                        <svg class="flex-shrink-0 h-6 w-6 text-green-600"
+                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                             stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <div class="ml-4">
+                                            <p class="text-base font-medium text-gray-900">
+                                                Doładuj konto
+                                            </p>
+                                            <p class="mt-1 text-sm text-gray-500">
+                                                Doładuj DoggerCoiny przy pomocy jednej z wielu ofert
+                                            </p>
+                                        </div>
+                                    </a>
+
+                                    <a href="{{route('createTransaction')}}"
+                                       class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 hover:no-underline">
+                                        <!-- Heroicon -->
+                                        <svg class="flex-shrink-0 h-6 w-6 text-green-600"
+                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                             stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                                        </svg>
+                                        <div class="ml-4">
+                                            <p class="text-base font-medium text-gray-900">
+                                                Podaruj DoggerCoiny
+                                            </p>
+                                            <p class="mt-1 text-sm text-gray-500">
+                                                Podaruj DoggerCoiny innym użytkownikom
+                                            </p>
+                                        </div>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div> <!-- Tutaj kończy się rozwijane menu DC -->
+                    </div>
 
                     <div class="relative">
                         <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
@@ -276,7 +337,7 @@
           Mobile menu
         -->
         <div id="menumobile"
-             class="hidden absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+             class="hidden z-10 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
             <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                 <div class="pt-5 pb-6 px-5">
                     <div class="flex items-center justify-between">
@@ -298,7 +359,7 @@
                     </div>
                     <div class="mt-6">
                         <nav class="grid gap-y-8">
-                            <a href="#"
+                            <a href="{{route('indexWalks')}}"
                                class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 hover:no-underline">
                                 <!-- Heroicon -->
                                 <svg class="flex-shrink-0 h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg"
@@ -311,7 +372,7 @@
                                     </span>
                             </a>
 
-                            <a href="#"
+                            <a href="{{route('addCoins')}}"
                                class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 hover:no-underline">
                                 <!-- Heroicon -->
                                 <svg class="flex-shrink-0 h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg"
@@ -324,7 +385,7 @@
                                     </span>
                             </a>
 
-                            <a href="#"
+                            <a href="{{route('myWalks')}}"
                                class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 hover:no-underline">
                                 <!-- Heroicon -->
                                 <svg class="flex-shrink-0 h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg"
@@ -363,29 +424,26 @@
                 </div>
                 <div class="py-6 px-5 space-y-6">
                     <div class="grid grid-cols-2 gap-y-4 gap-x-8">
-                        <a href="#" class="text-base font-medium text-gray-700 hover:text-gray-900 hover:no-underline">
-                            Lista ogłoszeń
-                        </a>
-
-                        <a href="#" class="text-base font-medium text-gray-700 hover:text-gray-900 hover:no-underline">
-                            Informacje o koncie
-                        </a>
-
-                        <a href="#" class="text-base font-medium text-gray-700 hover:text-gray-900 hover:no-underline">
+                        <a href="{{route('createWalk')}}" class="text-base font-medium text-gray-700 hover:text-gray-900 hover:no-underline">
                             Dodaj ogłoszenie
                         </a>
 
-                        <a href="#" class="text-base font-medium text-gray-700 hover:text-gray-900 hover:no-underline">
-                            Edytuj dane
+                        <a href="{{route('editAddress')}}" class="text-base font-medium text-gray-700 hover:text-gray-900 hover:no-underline">
+                            Zarządzaj adresami
                         </a>
 
-                        <a href="#" class="text-base font-medium text-gray-700 hover:text-gray-900 hover:no-underline">
-                            Edytuj ogłoszenie
+                        <a href="{{route('createPet')}}" class="text-base font-medium text-gray-700 hover:text-gray-900 hover:no-underline">
+                            Dodaj zwierzaka
                         </a>
 
-                        <a href="#" class="text-base font-medium text-gray-700 hover:text-gray-900 hover:no-underline">
+                        <a href="{{route('myAgreements')}}" class="text-base font-medium text-gray-700 hover:text-gray-900 hover:no-underline">
                             Historia zleceń
                         </a>
+
+                        <a href="{{route('createTransaction')}}" class="text-base font-medium text-gray-700 hover:text-gray-900 hover:no-underline">
+                            Podaruj DoggerCoin
+                        </a>
+
                     </div>
                     @auth()
                         <div>
@@ -448,13 +506,20 @@
 </div>
 
 <script>
-    function buttonclick() {
+    function buttonclick()
+    {
         var menuprofil = document.getElementById("menuprofil");
         var menuogloszenia = document.getElementById("menuogloszenia");
+        var menucoin = document.getElementById("menucoin");
 
         if (menuprofil.classList.contains('hidden')) {
             if (menuogloszenia.classList.contains('hidden')) {
-                menuprofil.classList.remove('hidden');
+                if (menucoin.classList.contains('hidden')){
+                    menuprofil.classList.remove('hidden');
+                } else{
+                    menucoin.classList.add('hidden')
+                    menuprofil.classList.remove('hidden')
+                }
             } else {
                 menuogloszenia.classList.add('hidden');
                 menuprofil.classList.remove('hidden');
@@ -463,28 +528,61 @@
         } else {
             menuprofil.classList.add('hidden');
         }
+
     }
 </script>
 
 <script>
-    function buttonclicko() {
-        var menuogloszenia = document.getElementById("menuogloszenia");
+    function buttonclicko()
+    {
         var menuprofil = document.getElementById("menuprofil");
-        var menuCoin = document.getElementById("menu-coin");
+        var menuogloszenia = document.getElementById("menuogloszenia");
+        var menucoin = document.getElementById("menucoin");
 
         if (menuogloszenia.classList.contains('hidden')) {
-            if (menuprofil.classList.contains('hidden')) {
-                menuogloszenia.classList.remove('hidden');
-            } else if (menuCoin.classList.contains('hidden')) {
-                menuCoin.classList.remove('hidden');
+            if (menucoin.classList.contains('hidden')) {
+                if (menuprofil.classList.contains('hidden')){
+                    menuogloszenia.classList.remove('hidden');
+                } else{
+                    menuprofil.classList.add('hidden')
+                    menuogloszenia.classList.remove('hidden')
+                }
             } else {
-                menuprofil.classList.add('hidden');
+                menucoin.classList.add('hidden');
                 menuogloszenia.classList.remove('hidden');
             }
 
         } else {
             menuogloszenia.classList.add('hidden');
         }
+
+    }
+</script>
+
+<script>
+    function buttonclickc()
+    {
+        var menuprofil = document.getElementById("menuprofil");
+        var menuogloszenia = document.getElementById("menuogloszenia");
+        var menucoin = document.getElementById("menucoin");
+
+        if (menucoin.classList.contains('hidden')) {
+            if (menuogloszenia.classList.contains('hidden')) {
+                if (menuprofil.classList.contains('hidden')){
+                    menucoin.classList.remove('hidden');
+                } else{
+                    menuprofil.classList.add('hidden')
+                    menucoin.classList.remove('hidden')
+                }
+            } else {
+                menuogloszenia.classList.add('hidden');
+                menucoin.classList.remove('hidden');
+            }
+
+        } else {
+            menucoin.classList.add('hidden');
+        }
+
     }
 </script>
 
