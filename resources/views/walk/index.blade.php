@@ -27,7 +27,7 @@
                             <span
                                 class="m-2 block text-center font-bold text-green-400">Odbędzie się: {{$walk->date}}</span>
                             <span
-                                class="m-2 block text-center font-bold text-green-400">Stawka: {{$walk->payment}} zł</span>
+                                class="m-2 block text-center font-bold text-green-400">Stawka: {{$walk->payment}} DGC</span>
                             <div
                                 class="border bg-gray-100 text-green-400 text-lg uppercase font-bold rounded-full py-2 px-3 absolute top-0 ml-1 mt-2">
                                 <span class="">{{$walk->pet->name}}</span>
