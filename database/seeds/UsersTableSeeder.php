@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -16,7 +17,7 @@ class UsersTableSeeder extends Seeder
             'id' => '1',
             'name' => 'Jakub Kowalski',
             'email' => 'jakub.k@gmail.com',
-            'password' => 'Qwerty123',
+            'password' => Hash::make('Qwerty123'),
             'street'=>'Strzelecka',
             'house_number' => '12',
             'postcode' => '34-215',
@@ -28,7 +29,7 @@ class UsersTableSeeder extends Seeder
             'id' => '2',
             'name' => 'Teresa Nowak',
             'email' => 'teresia123@interia.pl',
-            'password' => 'Qwerty123',
+            'password' => Hash::make('Qwerty123'),
             'street'=>'Powstańców Śląskich',
             'house_number' => '13/2',
             'postcode' => '45-011',
@@ -38,7 +39,7 @@ class UsersTableSeeder extends Seeder
             'id' => '3',
             'name' => 'Julia Małysz',
             'email' => 'julka123@interia.pl',
-            'password' => 'Qwerty123',
+            'password' => Hash::make('Qwerty123'),
             'street'=>'Lubliniecka',
             'house_number' => '114',
             'postcode' => '47-158',
@@ -50,7 +51,7 @@ class UsersTableSeeder extends Seeder
             'id' => '4',
             'name' => 'Bartosz Karolak',
             'email' => 'bartkar987@gmail.com',
-            'password' => 'Qwerty123',
+            'password' => Hash::make('Qwerty123'),
             'street'=>'Opolska',
             'house_number' => '12',
             'postcode' => '34-215',
