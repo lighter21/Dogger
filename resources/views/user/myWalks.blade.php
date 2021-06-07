@@ -69,13 +69,17 @@
                                                 <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->pet->name}}</td>
                                                 <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->date}}</td>
                                                 <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->payment}}</td>
-                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{substr($walk->description,0, 30)}}</td>
+                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{substr($walk->description,0, 30)}}...</td>
 
                                                 <td class="w-1/7 text-center py-2 col-span=2 border border-gray-400">
                                                     <a href="{{route('editWalk', $walk->id)}}"
                                                        class="bg-blue-400 hover:bg-blue-700 px-3 text-white inlineblock rounded mx-2">Edytuj</a>
-                                                    <a href="{{route('destroyWalk', $walk->id)}}"
-                                                       class="bg-red-400 hover:bg-red-700 px-3 text-white inlineblock rounded mx-2">Usuń</a>
+                                                    <form method="post" action="{{ route('destroyWalk', $walk->id) }}">
+                                                        {{ csrf_field() }}
+                                                        {{ method_field('DELETE') }}
+                                                        <button type="submit" class="bg-red-400 hover:bg-red-700 px-3 text-white inlineblock rounded mx-2">Usuń</button>
+                                                    </form>
+
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -134,7 +138,7 @@
                                                 <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->walk->payment}}
                                                     DGC
                                                 </td>
-                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{substr($walk->walk->description, 0, 30)}}</td>
+                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{substr($walk->walk->description, 0, 30)}}...</td>
 
                                                 <td class="w-1/7 text-center py-2 col-span=2 border border-gray-400">
                                                     <a href="{{route('declineWalk', $walk->id)}}"
@@ -198,7 +202,7 @@
                                                 <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->tenant->name}}</td>
                                                 <td class="w-1/7 text-center py-2 bg-red border border-gray-400"> {{$walk->tenant->email}}</td>
                                                 <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->walk->payment}}</td>
-                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{substr($walk->walk->description,0 ,30)}}</td>
+                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{substr($walk->walk->description,0 ,30) }}...</td>
 
                                                 <td class="w-1/7 text-center py-2 col-span=2 border border-gray-400">
                                                     <a href="{{route('acceptWalk', $walk->walk->id)}}"
@@ -262,11 +266,11 @@
                                                 <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->tenant->name}}</td>
                                                 <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->tenant->email}}</td>
                                                 <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{$walk->walk->payment}}</td>
-                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{substr($walk->walk->description, 0, 30)}}</td>
+                                                <td class="w-1/7 text-center py-2 bg-red border border-gray-400">{{substr($walk->walk->description, 0, 30)}}...</td>
 
                                                 <td class="w-1/7 text-center py-2 col-span=2 border border-gray-400">
                                                     <a href="{{route('payWalk', [$walk->walk->id, $walk->tenant->email,$walk->walk->payment])}}"
-                                                       class="bg-blue-400 hover:bg-blue-700 text-white inlineblock rounded mx-2">Zapłać</a>
+                                                       class="bg-blue-400 hover:bg-blue-700 text-white inlineblock rounded mx-2 px-3">Zapłać</a>
 {{--                                                    <a href="{{route('declineWalk', $walk->id)}}"--}}
 {{--                                                       class="bg-red-400 hover:bg-red-700 text-white inlineblock rounded mx-2">Odrzuć</a>--}}
                                                 </td>

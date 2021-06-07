@@ -39,7 +39,7 @@ Route::prefix('walk')->middleware('auth')->group(function () {
     Route::get('{walkId}',[WalkController::class, 'show'])->name('showWalk');
     Route::post('store', [WalkController::class, 'store'])->name('storeWalk');
     Route::get('{walkId}/edit', [WalkController::class, 'edit'])->name('editWalk');
-    Route::get('{walkId}/destroy', [WalkController::class, 'destroy'])->name('destroyWalk');
+    Route::delete('{walkId}/destroy', [WalkController::class, 'destroy'])->name('destroyWalk');
 });
 
 Route::prefix('user')->middleware('auth')->group(function () {

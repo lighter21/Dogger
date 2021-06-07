@@ -58,9 +58,11 @@ class WalkController extends Controller
 
     }
 
-    public function destroy()
+    public function destroy($walkId)
     {
-
+        $walk = Walk::find($walkId);
+        $walk->delete();
+        return redirect()->back();
     }
 
     private function validateRequest($rq)
