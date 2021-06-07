@@ -64,7 +64,7 @@ Route::prefix('wallet')->middleware('auth')->group(function () {
 Route::prefix('transaction')->middleware('auth')->group(function () {
     Route::get('create',[TransactionController::class, 'create'])->name('createTransaction');
     Route::post('store', [TransactionController::class, 'store'])->name('storeTransaction');
-    Route::post('payWalk', [TransactionController::class, 'payWalk'])->name('payWalk');
+    Route::get('payWalk/{id}/{email}/{payment}', [TransactionController::class, 'payWalk'])->name('payWalk');
 });
 
 Auth::routes();

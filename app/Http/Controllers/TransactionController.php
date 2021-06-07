@@ -48,30 +48,33 @@ class TransactionController extends Controller
 
         return redirect('home');
     }
-    public function payWalk(Request $request)
+    public function payWalk($walkId,$tenantEmail,$coins)
     {
-        $user2 = User::where('id', $request->recipient )->firstOrFail();
+        $user_id = Auth::id();
+        $user2 = User::where('email', $tenantEmail )->firstOrFail();
 
         Transaction::create([
             "sender_id" => $userId = Auth::id(),
             "recipient_id" => $user2->id,
-            "amount" => $request->amount,
+            "amount" => $coins,
         ]);
 
-        $user_id = Auth::id();
+        $walk = Walk::where('id', $walkId)->firstOrFail();
+        if ($walk->done == false){
+            $walk->done = true;
+            $walk->save();
+        }
+
         $senderWallet=Wallet::where('user_id', $user_id)->first();
-        $senderWallet->account_balance -= $request->amount;
+        $senderWallet->account_balance -= $coins;
         $senderWallet->save();
 
         $recipientWallet=Wallet::where('user_id', $user2->id)->firstOrFail();
-        $recipientWallet->account_balance += $request->amount;
+        $recipientWallet->account_balance += $coins;
         $recipientWallet->save();
 
-        $walk = Walk::where('id', $request->walkId)->firstOrFail();
-        $walk->done = true;
-        $walk->save();
 
-        return redirect()->back()->with('message', 'Pomyślnie dokonano płatności i zakończono spacer');
+        return redirect(route('myWalks'))->with('message', 'Pomyślnie dokonano płatności i zakończono spacer');
     }
 
 }
